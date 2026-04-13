@@ -1,26 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4fbff;
+  --foreground: #0f172a;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: rgba(255, 255, 255, 0.9);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", "Menlo", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Avenir Next", "Segoe UI", Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at top left, rgba(14, 165, 233, 0.2), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.16), transparent 28%),
+    linear-gradient(135deg, #f4fbff 0%, #eef7fb 42%, #f8fcff 100%);
+}
+
+::selection {
+  background: rgba(14, 165, 233, 0.22);
+}
+
+.page-shell::before {
+  content: "";
+  position: absolute;
+  left: -8rem;
+  top: 3rem;
+  z-index: -1;
+  height: 16rem;
+  width: 16rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.55);
+  filter: blur(12px);
+}
+
+.page-shell::after {
+  content: "";
+  position: absolute;
+  bottom: 2rem;
+  right: -4rem;
+  z-index: -1;
+  height: 14rem;
+  width: 14rem;
+  border-radius: 9999px;
+  background: rgba(125, 211, 252, 0.25);
+  filter: blur(22px);
+}
+
+.page-shell {
+  position: relative;
+}
+
+.panel-surface {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(240, 249, 255, 0.82)),
+    var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 26px 80px rgba(15, 23, 42, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.login-card {
+  background: var(--surface-strong);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
 }

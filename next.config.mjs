@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  allowedDevOrigins: ["kasha-corporeal-terrell.ngrok-free.dev"],
+  output: "standalone",
 };
 
 export default nextConfig;
