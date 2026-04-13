@@ -62,8 +62,10 @@ export default function OtpPage() {
       }
 
       setSuccess("OTP verified. You can now continue to the clinic dashboard.");
-      router.push("/home");
-      router.refresh();
+      router.replace("/home");
+      if (typeof window !== "undefined") {
+        window.location.assign("/home");
+      }
     } catch (verifyError) {
       setError(verifyError.message);
     } finally {
